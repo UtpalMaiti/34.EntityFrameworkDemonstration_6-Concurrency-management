@@ -1,0 +1,56 @@
+﻿@model EntityFrameworkDemonstration_6.DAL.EmpInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditEmployee</title>
+</head>
+<body>
+    <div>
+        @if (ViewBag.IsLocked)
+        {
+            <h2>Employee Details in Read Mode...</h2>
+            <p>
+                <label>Id : <b>@Model.Id</b></label>
+            </p>
+            <p>
+                <label>Name : <b>@Model.Name</b></label>
+            </p>
+            <p>
+                <label>Location : <b>@Model.Location</b></label>
+            </p>
+            <p>
+                <label>Salary : <b>@Model.Salary</b></label>
+            </p>
+        }
+        else
+        {
+            <h2>Welcome to Edit Employee Screen...</h2>
+            using (Html.BeginForm())
+            {
+                <p>
+                    <label>Id : @Html.TextBoxFor(e => e.Id)</label>
+                </p>
+                <p>
+                    <label>Name : @Html.TextBoxFor(e => e.Name)</label>
+                </p>
+                <p>
+                    <label>Location : @Html.TextBoxFor(e => e.Location)</label>
+                </p>
+                <p>
+                    <label>Salary : @Html.TextBoxFor(e => e.Salary)</label>
+                </p>
+
+                @*@Html.HiddenFor(r => r.rowrum)*@
+                <button>Update</button>
+            }
+        }
+    </div>
+</body>
+</html>

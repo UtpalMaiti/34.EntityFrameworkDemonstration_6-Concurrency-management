@@ -1,0 +1,44 @@
+﻿@model List<EntityFrameworkDemonstration_6.DAL.EmpInfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>Understanding the Concepts of Entity Framework...</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Action(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Location</td>
+                        <td>@emp.Salary</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditEmployee", new { Id=emp.Id})
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
